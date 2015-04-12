@@ -1,0 +1,128 @@
+set nocompatible
+syntax on
+
+" Required for Vundle setup
+" filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'hdima/python-syntax'
+Plugin 'lepture/vim-jinja'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'morhetz/gruvbox'
+Plugin 'klen/python-mode'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+let mapleader="\\"
+
+nnoremap <M> <C>
+" Disable Arrow Keys
+nnoremap <up> gk
+nnoremap <down> gj
+
+nnoremap <CR> i<CR><ESC>^
+nnoremap <C-CR> O<ESC>j
+nnoremap <Backspace> kdd
+nnoremap <C-Backspace> ^d0i<Backspace><ESC>l
+
+" clear trailing spaces
+nnoremap <Leader>ct :%s/\s\+$//<CR>    
+" switch theme to twilight
+nnoremap <Leader>tw :colorscheme twilight<CR> 
+" deselect
+noremap <Leader>ds <Esc> :noh <CR>     
+" Eclim
+nnoremap <Leader>jo :ProjectOpen <CR>
+nnoremap <Leader>ju :JUnit <CR>
+nnoremap <Leader>jr :JavaRename
+" Klen Pymode
+nnoremap <Leader>pc :PymodeLint<CR>
+nnoremap <Leader>pr :PymodeRun<CR>
+
+nnoremap <Leader>q <ESC>:q<CR>:q<CR>:q<CR>
+nnoremap <Leader>rc <ESC>:so $MYVIMRC<CR>
+
+" Next - Previous buffer
+nnoremap <C-h> :bp<Enter>
+nnoremap <C-l> :bn<Enter>
+nnoremap <C-x> :bd<Enter>:bn<CR>:NERDTree<CR><C-w>l
+
+" Move between left and right windows
+nnoremap <C-o> <C-w>l
+nnoremap <C-u> <C-w>j
+nnoremap <C-i> <C-w>k
+nnoremap <C-y> <C-w>h
+
+nnoremap <C-a> <C-u>
+
+" Save file
+nnoremap <C-p> :w<CR>
+inoremap <C-p> <ESC>:w<CR>i
+
+set mouse=a
+
+set showcmd
+
+set nu
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set backspace=2
+
+" Disable gruvbox italics for terminal
+let g:gruvbox_italic=0
+
+colorscheme gruvbox
+set guifont=Monaco:h12
+set background=dark
+set t_Co=256
+
+" Klen python-mode
+let g:pymode=0
+let g:pymode_lint_on_write=0
+let g:pymode_syntax_all=1
+let g:pymode_folding=0
+
+"NERDTree
+autocmd vimenter * NERDTree
+
+set nobackup
+set nowritebackup
+
+" Completion
+" let g:EclimCompletionMethod = 'omnifunc'
+
+"function MyDiff()
+  "let opt = '-a --binary '
+  "if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  "if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  "let arg1 = v:fname_in
+  "if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  "let arg2 = v:fname_new
+  "if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  "let arg3 = v:fname_out
+  "if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  "let eq = ''
+  "if $VIMRUNTIME =~ ' '
+    "if &sh =~ '\<cmd'
+      "let cmd = '""' . $VIMRUNTIME . '\diff"'
+      "let eq = '"'
+    "else
+      "let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    "endif
+  "else
+    "let cmd = $VIMRUNTIME . '\diff'
+  "endif
+  "silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+"endfunction
+
+
