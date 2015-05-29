@@ -2,7 +2,7 @@ set nocompatible
 syntax on
 
 " Required for Vundle setup
-" filetype off
+filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -11,12 +11,12 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'hdima/python-syntax'
-Plugin 'lepture/vim-jinja'
+" Plugin 'hdima/python-syntax'
+" Plugin 'lepture/vim-jinja'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'morhetz/gruvbox'
-Plugin 'klen/python-mode'
+" Plugin 'klen/python-mode'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -75,6 +75,9 @@ set nu
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+autocmd FileType c,cpp set softtabstop=8 shiftwidth=8 expandtab
+autocmd FileType python set softtabstop=4 shiftwidth=4 expandtab    
 
 set backspace=2
 
