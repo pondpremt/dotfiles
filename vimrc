@@ -35,8 +35,6 @@ nnoremap <C-Backspace> ^d0i<Backspace><ESC>l
 
 " clear trailing spaces
 nnoremap <Leader>ct :%s/\s\+$//<CR>    
-" switch theme to twilight
-nnoremap <Leader>tw :colorscheme twilight<CR> 
 " deselect
 noremap <Leader>ds <Esc> :noh <CR>     
 " Eclim
@@ -57,8 +55,6 @@ nnoremap <C-x> :bd<Enter>:bn<CR>:NERDTree<CR><C-w>l
 
 " Move between left and right windows
 nnoremap <C-o> <C-w>l
-nnoremap <C-u> <C-w>j
-nnoremap <C-i> <C-w>k
 nnoremap <C-y> <C-w>h
 
 nnoremap <C-a> <C-u>
@@ -103,29 +99,4 @@ set nowritebackup
 
 " Completion
 " let g:EclimCompletionMethod = 'omnifunc'
-
-"function MyDiff()
-  "let opt = '-a --binary '
-  "if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  "if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  "let arg1 = v:fname_in
-  "if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  "let arg2 = v:fname_new
-  "if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  "let arg3 = v:fname_out
-  "if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  "let eq = ''
-  "if $VIMRUNTIME =~ ' '
-    "if &sh =~ '\<cmd'
-      "let cmd = '""' . $VIMRUNTIME . '\diff"'
-      "let eq = '"'
-    "else
-      "let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    "endif
-  "else
-    "let cmd = $VIMRUNTIME . '\diff'
-  "endif
-  "silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-"endfunction
-
 
