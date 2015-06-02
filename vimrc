@@ -2,7 +2,7 @@ set nocompatible
 syntax on
 
 " Required for Vundle setup
-filetype off
+filetype on
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -41,6 +41,9 @@ noremap <Leader>ds <Esc> :noh <CR>
 nnoremap <Leader>jo :ProjectOpen <CR>
 nnoremap <Leader>ju :JUnit <CR>
 nnoremap <Leader>jr :JavaRename
+" YCM
+nnoremap <Leader>ygt :YcmCompleter GoTo <CR>
+nnoremap <Leader>ytp :YcmCompleter GetType <CR>
 " Klen Pymode
 nnoremap <Leader>pc :PymodeLint<CR>
 nnoremap <Leader>pr :PymodeRun<CR>
