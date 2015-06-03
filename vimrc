@@ -8,7 +8,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'hdima/python-syntax'
@@ -17,6 +16,7 @@ Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'morhetz/gruvbox'
 " Plugin 'klen/python-mode'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -96,6 +96,9 @@ let g:pymode_folding=0
 
 "NERDTree
 autocmd vimenter * NERDTree
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
 
 set nobackup
 set nowritebackup
