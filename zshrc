@@ -2,6 +2,8 @@
 export ZSH=/Users/moldot/.oh-my-zsh
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
 
+alias grn="grep -r -n"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each

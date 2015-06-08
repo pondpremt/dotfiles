@@ -59,8 +59,9 @@ nnoremap <C-x> :bp<CR>:bd #<CR>
 nnoremap <C-o> <C-w>l
 nnoremap <C-y> <C-w>h
 
-nnoremap <Leader>vs :vsplit
+nnoremap <Leader>vs :vsplit<CR>
 
+" open zsh shell
 nnoremap <Leader>vz :ConqueTerm zsh<CR>
 
 " Save file
@@ -97,6 +98,7 @@ let g:pymode_folding=0
 
 "NERDTree
 autocmd vimenter * NERDTree
+autocmd vimenter * wincmd l
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
