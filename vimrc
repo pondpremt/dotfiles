@@ -11,11 +11,10 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'hdima/python-syntax'
-" Plugin 'lepture/vim-jinja'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'morhetz/gruvbox'
-" Plugin 'klen/python-mode'
+ Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
@@ -54,13 +53,15 @@ nnoremap <Leader>rc <ESC>:so $MYVIMRC<CR>
 " Next - Previous buffer
 nnoremap <C-h> :bp<Enter>
 nnoremap <C-l> :bn<Enter>
-nnoremap <C-x> :bd<Enter>:bn<CR>:NERDTree<CR><C-w>l
+nnoremap <C-x> :bp<CR>:bd #<CR>
 
 " Move between left and right windows
 nnoremap <C-o> <C-w>l
 nnoremap <C-y> <C-w>h
 
-nnoremap <C-a> <C-u>
+nnoremap <Leader>vs :vsplit
+
+nnoremap <Leader>vz :ConqueTerm zsh<CR>
 
 " Save file
 nnoremap <C-p> :w<CR>
