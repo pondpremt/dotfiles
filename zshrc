@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/moldot/.oh-my-zsh
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
+export ZSH=$HOME/.oh-my-zsh
+#source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
 
 alias grn="grep -r -n"
 
