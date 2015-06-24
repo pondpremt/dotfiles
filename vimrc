@@ -51,13 +51,15 @@ nnoremap <Leader>q <ESC>:q<CR>:q<CR>:q<CR>
 nnoremap <Leader>rc <ESC>:so $MYVIMRC<CR>
 
 " Next - Previous buffer
-nnoremap <C-h> :bp<Enter>
-nnoremap <C-l> :bn<Enter>
+nnoremap <C-y> :bp<Enter>
+nnoremap <C-o> :bn<Enter>
 nnoremap <C-x> :bp<CR>:bd #<CR>
 
 " Move between left and right windows
-nnoremap <C-o> <C-w>l
-nnoremap <C-y> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
 
 nnoremap <Leader>vs :vsplit<CR>
 
