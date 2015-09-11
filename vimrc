@@ -14,12 +14,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'morhetz/gruvbox'
- Plugin 'klen/python-mode'
+Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+let g:airline#extensions#tabline#enabled = 1
 let mapleader="\\"
 
 nnoremap <M> <C>
@@ -92,6 +93,7 @@ set guifont=Monaco:h12
 set background=dark
 set t_Co=256
 
+let g:airline_powerline_fonts = 1
 " Klen python-mode
 let g:pymode=0
 let g:pymode_lint_on_write=0

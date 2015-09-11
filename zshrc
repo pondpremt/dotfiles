@@ -1,9 +1,8 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-#source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
-
 alias grn="grep -r -n"
-alias psvim="cd /home/pond.premtoon/purity/kernel; vim vol/offline_space.cpp;"
+export ZSH=/Users/moldot/.oh-my-zsh
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
+alias octave='/usr/local/octave/3.8.0/bin/octave-3.8.0'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
