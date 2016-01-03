@@ -2,7 +2,7 @@ set nocompatible
 syntax on
 
 " Required for Vundle setup
-filetype on
+filetype plugin indent on
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -37,10 +37,13 @@ nnoremap <C-Backspace> ^d0i<Backspace><ESC>l
 nnoremap <Leader>ct :%s/\s\+$//<CR>    
 " deselect
 noremap <Leader>ds <Esc> :noh <CR>     
+
 " Eclim
 nnoremap <Leader>jo :ProjectOpen <CR>
 nnoremap <Leader>ju :JUnit <CR>
 nnoremap <Leader>jr :JavaRename
+" NERDTree
+nnoremap <Leader>nt :NERDTreeToggle <CR>
 " YCM
 nnoremap <Leader>ygt :YcmCompleter GoTo <CR>
 nnoremap <Leader>ytp :YcmCompleter GetType <CR>
@@ -80,10 +83,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-autocmd FileType c,cpp set softtabstop=8 shiftwidth=8 expandtab
-autocmd FileType python set softtabstop=4 shiftwidth=4 expandtab    
-
-set backspace=2
+autocmd FileType c,cpp set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab    
 
 " Disable gruvbox italics for terminal
 let g:gruvbox_italic=0
@@ -95,7 +96,7 @@ set t_Co=256
 
 let g:airline_powerline_fonts = 1
 " Klen python-mode
-let g:pymode=0
+let g:pymode=1
 let g:pymode_lint_on_write=0
 let g:pymode_syntax_all=1
 let g:pymode_folding=0
@@ -103,6 +104,7 @@ let g:pymode_folding=0
 "NERDTree
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd l
+let NERDTreeIgnore = ['\.pyc$']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -112,4 +114,5 @@ set nowritebackup
 
 " Completion
 " let g:EclimCompletionMethod = 'omnifunc'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
