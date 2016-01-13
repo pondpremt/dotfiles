@@ -10,7 +10,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'hdima/python-syntax'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'morhetz/gruvbox'
@@ -100,6 +99,8 @@ let g:pymode=1
 let g:pymode_lint_on_write=0
 let g:pymode_syntax_all=1
 let g:pymode_folding=0
+let g:pymode_rope_complete_on_dot=0
+let g:pymode_lint_ignore = "E501"
 
 "NERDTree
 autocmd vimenter * NERDTree
@@ -115,4 +116,3 @@ set nowritebackup
 " Completion
 " let g:EclimCompletionMethod = 'omnifunc'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-

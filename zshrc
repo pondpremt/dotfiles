@@ -1,8 +1,5 @@
 # Path to your oh-my-zsh installation.
-alias grn="grep -r -n"
-export ZSH=/Users/moldot/.oh-my-zsh
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
-alias octave='/usr/local/octave/3.8.0/bin/octave-3.8.0'
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -81,3 +78,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Machine specific config
+
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
+
+alias ath="sshpass -f ~/.athenapassword ssh varot@athena.dialup.mit.edu"
+alias ru="sshpass -f ~/.athenapassword rsync --progress --delete -avz -e ssh ~/Comp/InfoLab/whoami/ varot@navassa.csail.mit.edu:~/whoami/"
+alias rd="sshpass -f ~/.athenapassword rsync --progress --delete -avz -e ssh varot@navassa.csail.mit.edu:~/whoami/ ~/Comp/InfoLab/whoami/"
+
+alias grn="grep -r -n"
