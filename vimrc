@@ -50,7 +50,7 @@ nnoremap <Leader>ytp :YcmCompleter GetType <CR>
 nnoremap <Leader>pc :PymodeLint<CR>
 nnoremap <Leader>pr :PymodeRun<CR>
 
-nnoremap <Leader>q <ESC>:q<CR>:q<CR>:q<CR>
+nnoremap <Leader>q <ESC>:qa<CR>
 nnoremap <Leader>rc <ESC>:so $MYVIMRC<CR>
 
 " Next - Previous buffer
@@ -76,6 +76,8 @@ inoremap <C-p> <ESC>:w<CR>i
 set mouse=a
 
 set showcmd
+
+set synmaxcol=240
 
 set nu
 set tabstop=4
