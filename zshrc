@@ -80,7 +80,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Machine specific config
-source localzshrc
+source $HOME/dotfiles/localzshrc
 
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
 
