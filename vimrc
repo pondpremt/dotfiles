@@ -16,6 +16,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -45,7 +46,7 @@ nnoremap <Leader>jr :JavaRename
 nnoremap <Leader>nt :NERDTreeToggle <CR>
 " YCM
 nnoremap <Leader>ygt :YcmCompleter GoTo <CR>
-nnoremap <Leader>ytp :YcmCompleter GetType <CR>
+nnoremap <Leader>ydc :YcmCompleter GetDoc <CR>
 " Klen Pymode
 nnoremap <Leader>pc :PymodeLint<CR>
 nnoremap <Leader>pr :PymodeRun<CR>
@@ -103,6 +104,7 @@ let g:pymode_syntax_all=1
 let g:pymode_folding=0
 let g:pymode_rope_complete_on_dot=0
 let g:pymode_lint_ignore = "E501"
+let g:pymode_rope=0
 
 "NERDTree
 autocmd vimenter * NERDTree
