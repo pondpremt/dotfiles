@@ -75,11 +75,10 @@ nnoremap <C-p> :w<CR>
 inoremap <C-p> <ESC>:w<CR>i
 
 set mouse=a
-
+set cursorline
+set hlsearch
 set showcmd
-
 set synmaxcol=240
-
 set nu
 set tabstop=4
 set shiftwidth=4
