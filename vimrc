@@ -7,16 +7,25 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'scrooloose/nerdcommenter'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'morhetz/gruvbox'
-Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'morhetz/gruvbox'
+
+" Formatter
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Yggdroot/indentLine'
+
+" Autocompleter/Linter
+" Needs to './install.sh --clang-completer'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'klen/python-mode'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -65,6 +74,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 
+" Resize vsplit
+nnoremap <C-s> :vertical resize -1 <CR>
+nnoremap <C-a> :vertical resize +1 <CR>
+
 nnoremap <Leader>vs :vsplit<CR>
 
 " open zsh shell
@@ -85,7 +98,7 @@ set shiftwidth=4
 set expandtab
 
 autocmd FileType c,cpp set tabstop=2 shiftwidth=2 expandtab
-autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab    
+autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab colorcolumn=100
 
 " Disable gruvbox italics for terminal
 let g:gruvbox_italic=0
@@ -102,12 +115,15 @@ let g:pymode_lint_on_write=0
 let g:pymode_syntax_all=1
 let g:pymode_folding=0
 let g:pymode_rope_complete_on_dot=0
-let g:pymode_lint_ignore = "E501"
+let g:pymode_lint_ignore = "E402,E501,E265,E0106"
 let g:pymode_rope=0
 
+" Syntastic
+let g:syntastic_ignore_files = ['\.py$']
+
 "NERDTree
-autocmd vimenter * NERDTree
-autocmd vimenter * wincmd l
+"autocmd vimenter * NERDTree
+"autocmd vimenter * wincmd l
 let NERDTreeIgnore = ['\.pyc$']
 
 " Airline
