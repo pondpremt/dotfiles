@@ -83,9 +83,9 @@ nnoremap <Leader>vs :vsplit<CR>
 " open zsh shell
 nnoremap <Leader>vz :ConqueTerm zsh<CR>
 
-" Save file
-nnoremap <C-p> :w<CR>
-inoremap <C-p> <ESC>:w<CR>i
+"--------------- Save file
+nnoremap <Leader>s :w<CR>
+inoremap <Leader>s <ESC>:w<CR>i
 
 set mouse=a
 set cursorline
@@ -125,6 +125,9 @@ let g:syntastic_ignore_files = ['\.py$']
 "autocmd vimenter * NERDTree
 "autocmd vimenter * wincmd l
 let NERDTreeIgnore = ['\.pyc$']
+
+" ctrlp
+let g:ctrlp_max_files=0
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
