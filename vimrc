@@ -15,16 +15,23 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'jnurmine/Zenburn'
+Plugin 'Valloric/ListToggle'
 
-" Formatter
+" Formatter 
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
 
-" Autocompleter/Linter
+" Autocompleter/Linter/Highlighter
 " Needs to './install.sh --clang-completer'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'ternjs/tern_for_vim'  " Run npm install in folder
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'klen/python-mode'
+Plugin 'alvan/vim-closetag'
+Plugin 'valloric/MatchTagAlways'
 
 
 call vundle#end()            " required
@@ -97,8 +104,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-autocmd FileType c,cpp set tabstop=2 shiftwidth=2 expandtab
-autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab colorcolumn=100
+autocmd FileType c,cpp,javascript set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab colorcolumn=80
 
 " Disable gruvbox italics for terminal
 let g:gruvbox_italic=0
@@ -118,13 +125,33 @@ let g:pymode_rope_complete_on_dot=0
 let g:pymode_lint_ignore = "E402,E501,E265,E0106"
 let g:pymode_rope=0
 
+" MatchTagAlways
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'js': 1,
+    \}
+
+" vim-closetag
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js"
+
 " Syntastic
 let g:syntastic_ignore_files = ['\.py$']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_always_populate_loc_list = 1
+
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0 
 
 "NERDTree
-"autocmd vimenter * NERDTree
-"autocmd vimenter * wincmd l
+autocmd vimenter * NERDTree
+autocmd vimenter * wincmd l
 let NERDTreeIgnore = ['\.pyc$']
+
+" List Toggle
+let g:lt_quickfix_list_toggle_map = '<leader>fl'
 
 " ctrlp
 let g:ctrlp_max_files=0
