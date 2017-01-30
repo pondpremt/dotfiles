@@ -1,10 +1,12 @@
 ;; Melpa
 (require 'package)
 
-(setq package-list '(gruvbox-theme))
+(setq package-list '(gruvbox-theme
+		     neotree))
 
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
-                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+			 ("melpa" . "http://melpa.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
