@@ -1,12 +1,18 @@
+(load "~start/common-emacs")
+(setq folding-auto-start nil)
+
 ;; Melpa
 (require 'package)
 
 (setq package-list '(gruvbox-theme
-		     neotree))
+		     neotree
+		     jedi
+		     flycheck))
 
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
 			 ("melpa" . "http://melpa.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")))
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -30,10 +36,17 @@
 (setq linum-format "%d ")
 
 ;; Move between panes
-(global-set-key (kbd "C-x <up>") 'windmove-up)
-(global-set-key (kbd "C-x <down>") 'windmove-down)
-(global-set-key (kbd "C-x <left>") 'windmove-left)
-(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>") 'windmove-up)
+(global-set-key (kbd "C-c <down>") 'windmove-down)
+(global-set-key (kbd "C-c <left>") 'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+
+;; IDO
+(require 'ido)
+(ido-mode t)
+
+;; Flycheck
+(global-flycheck-mode)
 
 (if (file-exists-p "~/dotfiles/localemacs.el")
     (load-file "~/dotfiles/localemacs.el"))
