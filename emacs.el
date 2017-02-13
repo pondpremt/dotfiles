@@ -3,7 +3,7 @@
 
 (setq package-list '(gruvbox-theme
 		     neotree
-		     markdown-mode))
+		     markdown-mode
 		     jedi
 		     flycheck))
 
@@ -42,6 +42,10 @@
 ;; IDO
 (require 'ido)
 (ido-mode t)
+
+;; Jedi
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)                
 
 ;; Flycheck
 (global-flycheck-mode)
