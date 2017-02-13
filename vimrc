@@ -8,14 +8,16 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+" Vim setup
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'jnurmine/Zenburn'
+
+" Navigation
+Plugin 'easymotion/vim-easymotion'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Valloric/ListToggle'
 
 " Formatter 
@@ -29,9 +31,13 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ternjs/tern_for_vim'  " Run npm install in folder
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'klen/python-mode'
 Plugin 'alvan/vim-closetag'
 Plugin 'valloric/MatchTagAlways'
+Plugin 'klen/python-mode'
+
+" Note taking
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 
 
 call vundle#end()            " required
@@ -93,6 +99,9 @@ nnoremap <Leader>vz :ConqueTerm zsh<CR>
 "--------------- Save file
 nnoremap <Leader>s :w<CR>
 inoremap <Leader>s <ESC>:w<CR>i
+
+" To insert repeated character as long as the line
+nnoremap <Leader>mu yypVr
 
 set mouse=a
 set cursorline
