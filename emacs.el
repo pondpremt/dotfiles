@@ -1,6 +1,3 @@
-(load "~start/common-emacs")
-(setq folding-auto-start nil)
-
 ;; Melpa
 (require 'package)
 
