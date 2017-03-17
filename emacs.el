@@ -2,12 +2,15 @@
 (require 'package)
 
 (setq package-list '(gruvbox-theme
+		     auctex
 		     ace-window
+		     helm
 		     rainbow-delimiters
 		     neotree
 		     markdown-mode
 		     jedi
 		     flycheck
+		     evil
 		     web-mode))
 
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
@@ -29,8 +32,31 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; Evil
+(require 'evil)
+(evil-mode 1)
+
+(global-set-key (kbd "C-q") 'suspend-emacs)
+
 ;; Color
 (load-theme 'gruvbox t)
+
+;; AUCTeX
+(load "auctex.el" nil t t)
+(require 'tex-mik)
+
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+
+(setq TeX-PDF-mode t)
 
 ;; Rainbow Delimiters
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
@@ -133,7 +159,4 @@
  '(custom-safe-themes
    (quote
     ("10e231624707d46f7b2059cc9280c332f7c7a530ebc17dba7e506df34c5332c4" default)))
- '(package-selected-packages
-   (quote
-    (ace-window rainbow-delimiters web-mode solarized-theme gruvbox-theme))))
-
+ '(package-selected-packages (quote (evil solarized-theme gruvbox-theme))))
