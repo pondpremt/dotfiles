@@ -3,7 +3,6 @@
 
 (setq package-list '(gruvbox-theme
 		     auctex
-		     ace-window
 		     helm
 		     rainbow-delimiters
 		     neotree
@@ -11,7 +10,8 @@
 		     jedi
 		     flycheck
 		     evil
-		     web-mode))
+		     web-mode
+             ))
 
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
 			 ("melpa" . "http://melpa.org/packages/")
@@ -32,16 +32,25 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-;; Evil
+;;; Evil
 (require 'evil)
 (evil-mode 1)
 
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+
+;; Use emacs key binding in insert mode
+(setq evil-insert-state-map (make-sparse-keymap))
+(define-key evil-insert-state-map (kbd "<escape>") 'evil-normal-state)
+
 (global-set-key (kbd "C-q") 'suspend-emacs)
 
-;; Color
+;;; Color
 (load-theme 'gruvbox t)
 
-;; AUCTeX
+;;; AUCTeX
 (load "auctex.el" nil t t)
 (require 'tex-mik)
 
@@ -58,7 +67,7 @@
 
 (setq TeX-PDF-mode t)
 
-;; Rainbow Delimiters
+;;; Rainbow Delimiters
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -77,43 +86,43 @@
  '(rainbow-delimiters-depth-9-face ((t (:foreground "color-212"))))
  '(rainbow-delimiters-unmatched-face ((t (:foreground "color-226")))))
 
-;; Line number
+;;; Line number
 (global-linum-mode t)
 (setq linum-format "%d ")
 
-;; Move between panes
+;;; Move between panes
 (global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "M-p") 'ace-window)
 
-;; IDO
+;;; IDO
 (require 'ido)
 (ido-mode t)
 
-;; Jedi
+;;; Jedi
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)                
 
-;; Flycheck
+;;; Flycheck
 (global-flycheck-mode)
 
-;; Webmode
+;;; Webmode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jnj\\'" . web-mode))
 (setq web-mode-engines-alist
       '(("jinja"    . "\\.jnj\\'")))
 
-;; NeoTree
+;;; NeoTree
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
-;; Disable the splash scren (to enable it agin, replace the t with 0)
+;;; Disable the splash scren (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t)
 
-;; Enable transient mark mode
+;;; Enable transient mark mode
 (transient-mark-mode 1)
 
 ;;;;org-mode configuration
@@ -126,7 +135,7 @@
 ;;; AUtofill
 (auto-fill-mode -1)
 
-;; Commenting
+;;; Commenting
 (defun comment-or-uncomment-line-or-region ()
   "Comments or uncomments the current line or region."
   (interactive)
@@ -135,7 +144,7 @@
       (comment-or-uncomment-region (line-beginning-position) (line-end-position))))
 (global-set-key (kbd "C-c C-SPC") 'comment-or-uncomment-line-or-region)
 
-;; Enable mouse support
+;;; Enable mouse support
 (unless window-system
   (require 'mouse)
   (xterm-mouse-mode t)
