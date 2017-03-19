@@ -3,7 +3,7 @@
 
 (setq package-list '(gruvbox-theme
 		     auctex
-		     helm
+		     ace-window
 		     rainbow-delimiters
 		     neotree
 		     markdown-mode
@@ -41,6 +41,9 @@
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 
+(define-key evil-normal-state-map (kbd "C-y") 'previous-buffer)
+(define-key evil-normal-state-map (kbd "C-o") 'next-buffer)
+(define-key evil-normal-state-map (kbd "C-i") 'ido-switch-buffer)
 ;; Use emacs key binding in insert mode
 (setq evil-insert-state-map (make-sparse-keymap))
 (define-key evil-insert-state-map (kbd "<escape>") 'evil-normal-state)
