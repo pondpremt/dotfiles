@@ -14,6 +14,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'morhetz/gruvbox'
+Plugin 'tomasr/molokai'
 
 " Navigation
 Plugin 'easymotion/vim-easymotion'
@@ -113,7 +114,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-autocmd FileType c,cpp,javascript set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType c,cpp,javascript,ocaml,ml set tabstop=2 shiftwidth=2 expandtab
 autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab colorcolumn=80
 
 " Disable gruvbox italics for terminal
