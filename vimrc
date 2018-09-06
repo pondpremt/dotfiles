@@ -1,9 +1,7 @@
 set nocompatible
-syntax on
 
-" Required for Vundle setup
-filetype plugin indent on
 set runtimepath+=~/.vim/bundle/Vundle.vim
+filetype off
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
@@ -11,15 +9,13 @@ Plugin 'gmarik/Vundle.vim'
 " Vim setup
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'morhetz/gruvbox'
-Plugin 'tomasr/molokai'
+Plugin 'rakr/vim-one'
 
 " Navigation
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Valloric/ListToggle'
 
 " Formatter 
 Plugin 'scrooloose/nerdcommenter'
@@ -31,19 +27,13 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'ternjs/tern_for_vim'  " Run npm install in folder
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'alvan/vim-closetag'
-Plugin 'valloric/MatchTagAlways'
 Plugin 'klen/python-mode'
-
-" Note taking
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-let g:airline#extensions#tabline#enabled = 1
+syntax on 
+
 let mapleader="\\"
 
 nnoremap <M> <C>
@@ -116,13 +106,14 @@ set expandtab
 
 autocmd FileType c,cpp,javascript,ocaml,ml set tabstop=2 shiftwidth=2 expandtab
 autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab colorcolumn=80
+autocmd FileType typescript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab colorcolumn=100
 
 " Disable gruvbox italics for terminal
-let g:gruvbox_italic=0
+"let g:gruvbox_italic=0
 
-colorscheme gruvbox
+colorscheme one
+set background=light
 set guifont=Monaco:h12
-set background=dark
 set t_Co=256
 
 let g:airline_powerline_fonts = 1
@@ -135,33 +126,15 @@ let g:pymode_rope_complete_on_dot=0
 let g:pymode_lint_ignore = "E402,E501,E265,E0106"
 let g:pymode_rope=0
 
-" MatchTagAlways
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-    \ 'js': 1,
-    \}
-
-" vim-closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js"
-
 " Syntastic
 let g:syntastic_ignore_files = ['\.py$']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 
-" Allow JSX in normal JS files
-let g:jsx_ext_required = 0 
-
 "NERDTree
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd l
 let NERDTreeIgnore = ['\.pyc$']
-
-" List Toggle
-let g:lt_quickfix_list_toggle_map = '<leader>fl'
 
 " ctrlp
 let g:ctrlp_max_files=0
@@ -174,4 +147,9 @@ set nowritebackup
 
 " Completion
 " let g:EclimCompletionMethod = 'omnifunc'
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
