@@ -12,6 +12,7 @@ Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'morhetz/gruvbox'
 Plugin 'rakr/vim-one'
+Plugin 'NLKNguyen/papercolor-theme'
 
 " Navigation
 Plugin 'easymotion/vim-easymotion'
@@ -51,10 +52,6 @@ nnoremap <Leader>ct :%s/\s\+$//<CR>
 " deselect
 noremap <Leader>ds <Esc> :noh <CR>     
 
-" Eclim
-nnoremap <Leader>jo :ProjectOpen <CR>
-nnoremap <Leader>ju :JUnit <CR>
-nnoremap <Leader>jr :JavaRename
 " NERDTree
 nnoremap <Leader>nt :NERDTreeToggle <CR>
 " YCM
@@ -84,9 +81,6 @@ nnoremap <C-a> :vertical resize +1 <CR>
 
 nnoremap <Leader>vs :vsplit<CR>
 
-" open zsh shell
-nnoremap <Leader>vz :ConqueTerm zsh<CR>
-
 "--------------- Save file
 nnoremap <Leader>s :w<CR>
 inoremap <Leader>s <ESC>:w<CR>i
@@ -110,8 +104,7 @@ autocmd FileType typescript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab c
 
 " Disable gruvbox italics for terminal
 "let g:gruvbox_italic=0
-
-colorscheme one
+colorscheme papercolor
 set background=light
 set guifont=Monaco:h12
 set t_Co=256
@@ -126,11 +119,6 @@ let g:pymode_rope_complete_on_dot=0
 let g:pymode_lint_ignore = "E402,E501,E265,E0106"
 let g:pymode_rope=0
 
-" Syntastic
-let g:syntastic_ignore_files = ['\.py$']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
-
 "NERDTree
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd l
@@ -144,10 +132,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 set nobackup
 set nowritebackup
-
-" Completion
-" let g:EclimCompletionMethod = 'omnifunc'
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
