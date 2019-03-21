@@ -86,3 +86,8 @@ source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
 
 alias grn="grep -r -n"
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+
+ghe() {
+    grep -r -n $2 **/*.$1
+}
+

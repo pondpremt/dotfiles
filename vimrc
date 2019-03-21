@@ -30,6 +30,7 @@ Plugin 'ternjs/tern_for_vim'  " Run npm install in folder
 Plugin 'pangloss/vim-javascript'
 Plugin 'klen/python-mode'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -104,7 +105,7 @@ autocmd FileType typescript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab c
 
 " Disable gruvbox italics for terminal
 "let g:gruvbox_italic=0
-colorscheme papercolor
+colorscheme PaperColor
 set background=light
 set guifont=Monaco:h12
 set t_Co=256
