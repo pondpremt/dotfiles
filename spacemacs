@@ -330,6 +330,7 @@ you should place your code here."
     (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (setq-default TeX-engine 'luatex)
   )
 
 

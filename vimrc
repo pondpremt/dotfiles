@@ -62,6 +62,9 @@ nnoremap <Leader>ydc :YcmCompleter GetDoc <CR>
 nnoremap <Leader>pc :PymodeLint<CR>
 nnoremap <Leader>pr :PymodeRun<CR>
 
+" CtrlP (<C-p> is mapped to :CtrlPBuffer)
+nnoremap <Leader>ff :CtrlP<CR>
+
 nnoremap <Leader>q <ESC>:qa<CR>
 nnoremap <Leader>rc <ESC>:so $MYVIMRC<CR>
 
@@ -98,6 +101,7 @@ set nu
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set backspace=indent,eol,start
 
 autocmd FileType c,cpp,javascript,ocaml,ml set tabstop=2 shiftwidth=2 expandtab
 autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab colorcolumn=80
@@ -127,6 +131,8 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " ctrlp
 let g:ctrlp_max_files=0
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -138,3 +144,4 @@ if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:ycm_autoclose_preview_window_after_completion = 1
