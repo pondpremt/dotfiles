@@ -1,7 +1,5 @@
 ## macOS
 
-local.*
-
 # General
 .DS_Store
 .AppleDouble
