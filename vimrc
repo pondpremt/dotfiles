@@ -11,11 +11,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'morhetz/gruvbox'
-Plugin 'rakr/vim-one'
 Plugin 'NLKNguyen/papercolor-theme'
 
 " Navigation
-Plugin 'easymotion/vim-easymotion'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Formatter 
@@ -26,11 +24,6 @@ Plugin 'Yggdroot/indentLine'
 " Needs to './install.sh --clang-completer'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-Plugin 'ternjs/tern_for_vim'  " Run npm install in folder
-Plugin 'pangloss/vim-javascript'
-Plugin 'klen/python-mode'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
