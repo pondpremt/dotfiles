@@ -31,29 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     python
-     clojure
-     typescript
-     html
-     ocaml
-     yaml
-     helm
      auto-completion
-     (haskell :variables haskell-completion-backend 'ghc-mod)
-     better-defaults
      emacs-lisp
-     ;; git
      markdown
-     org
-     (shell :variables
-            shell-default-shell 'eshell
-            shell-default-height 30
-            shell-default-position 'right)
-     spell-checking
-     syntax-checking
-     ;; version-control
-     javascript
-     latex
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -139,7 +119,7 @@ values."
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
                                :weight normal
-                               :width normal
+                               :width narrow
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
@@ -330,7 +310,6 @@ you should place your code here."
     (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (setq-default TeX-engine 'luatex)
   )
 
 

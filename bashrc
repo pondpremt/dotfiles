@@ -32,17 +32,25 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
 }
 
-parse_git() {
+parse_hg_branch() {
+    hg branch 2> /dev/null
+}
+
+parse_vcs() {
     # TODO add symbol for clean vs dirty repo
-    local branch=$(parse_git_branch)
-    if [[ -n $branch ]]; then 
-        echo -e " $SYM_LS$FMT_BRANCH$branch$SYM_RS"
+    # TODO add symbol for git vs hg repo
+    local git_branch=$(parse_git_branch)
+    local hg_branch=$(parse_hg_branch)
+    if [[ -n $git_branch ]]; then 
+        echo -e " $SYM_LS$FMT_BRANCH$git_branch$SYM_RS"
+    elif [[ -n $hg_branch ]]; then 
+        echo -e " $SYM_LS$FMT_BRANCH$hg_branch$SYM_RS"
     else
         echo ""
     fi
 }
 
-PS1="[\t] $FMT_USER\u$SYM_HOST$FMT_HOST\h$SYM_PATH$FMT_PATH\w\$(parse_git) $SYM_PROMPT $END"
+PS1="[\t] $FMT_USER\u$SYM_HOST$FMT_HOST\h$SYM_PATH$FMT_PATH\w\$(parse_vcs) $SYM_PROMPT $END"
 
 cd () {
     command pushd "$@" > /dev/null
@@ -50,3 +58,4 @@ cd () {
 
 export PATH="$HOME/.cargo/bin:$PATH"
 alias scm="/Applications/MIT-GNU-Scheme-10.1.10.app/Contents/Resources/mit-scheme"
+eval "$(/opt/homebrew/bin/brew shellenv)"
