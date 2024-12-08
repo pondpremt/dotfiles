@@ -59,3 +59,6 @@ cd () {
 export PATH="$HOME/.cargo/bin:$PATH"
 alias scm="/Applications/MIT-GNU-Scheme-10.1.10.app/Contents/Resources/mit-scheme"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# direnv
+eval "$(direnv hook bash)"
